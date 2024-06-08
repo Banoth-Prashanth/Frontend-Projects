@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+       body{
+        
+        background: linear-gradient(225deg, #000000 0%, #0b147b 50%, #000000 100%);
+        height: 100vh;
+        font-size: 60px;
+        color: white;
+        
+       }
+       .main{
+        height: 150px;
+        width: 340px;
+        background-color:rgb(14, 1, 128);
+        position: absolute;
+        border-radius: 20px;
+         top: 40%;
+        left: 35%; 
+        /* transform: translate(-50%,-50%); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid rgba(255, 255, 255,);
+       
+        
+       }
+       .main:before,.main:after{
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            border-radius: 20px;
+            background: linear-gradient(45deg,#fb0094,#00e5ff,orangered,#fb0094,#ffff00,#00ff00,#ffff00,#00e5ff);
+            background-size: 500px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: amin 20s linear infinite;
+            z-index: -1;
+
+       }
+       .hr,.min,.sec{
+        height: 80px;
+        width: 80px;
+        background-color: #ffffff;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+        font-optical-sizing: auto;
+        font-style: normal;
+      
+
+       }
+       .main:after{
+        filter: blur(15px);
+
+       }
+       @keyframes amin{
+            0%{
+                background-position: 100% 0;
+            }
+            50%{
+                background-position: 500% 0;
+            }
+            100%{
+                background-position: 0 0;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="hr">00</div>:
+        <div class="min">00</div>:
+        <div class="sec">00</div>
+    </div>
+    <script>
+        let h = document.getElementsByClassName("hr")[0];
+        let m = document.getElementsByClassName("min")[0];
+        let s = document.getElementsByClassName("sec")[0];
+        function set(){
+        const now=new Date();
+        const hr =String(now.getHours()).padStart(2,'0');
+        const min =String(now.getMinutes()).padStart(2,'0');
+        const sec =String(now.getSeconds()).padStart(2,'0');
+        h.textContent=hr;
+        m.textContent=min;
+        s.textContent=sec;
+        }
+        setInterval(set,1000);
+    </script>
+    
+</body>
+</html>
