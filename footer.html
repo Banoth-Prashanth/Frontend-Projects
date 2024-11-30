@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Footer</title>
+    <style>
+        /* Footer Styling */
+        footer {
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-logo {
+            flex: 1;
+            text-align: left;
+            padding: 10px;
+        }
+        .footer-logo img {
+            width: 100px;
+        }
+        .footer-links {
+            flex: 2;
+            text-align: center;
+            padding: 10px;
+        }
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .social-icons {
+            flex: 1;
+            text-align: right;
+            padding: 10px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 5px;
+            font-size: 20px;
+        }
+        .social-icons a:hover {
+            color: #ffeb3b;
+        }
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-logo, .footer-links, .social-icons {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="https://via.placeholder.com/100" alt="College Logo">
+            </div>
+            <div class="footer-links">
+                <a href="#privacy-policy">Privacy Policy</a>
+                <a href="#copyright-policy">Copyright Policy</a>
+                <a href="#about">About Us</a>
+                <a href="#merged-companies">Merged Companies</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Your College Name. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
