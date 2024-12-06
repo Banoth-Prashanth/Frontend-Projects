@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Preview from URL</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            margin-bottom: 16px;
+        }
+        .container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .image-preview {
+            display: none;
+            margin-top: 20px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .image-preview img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Image Preview from URL</h2>
+        <input type="text" id="imageUrlInput" placeholder="Enter image URL">
+        <div class="image-preview" id="imagePreview">
+            <img src="" alt="Image Preview" id="previewImage">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('imageUrlInput').addEventListener('input', () => {
+            const imageUrl = document.getElementById('imageUrlInput').value;
+            const imagePreview = document.getElementById('imagePreview');
+            const previewImage = document.getElementById('previewImage');
+            
+            if (imageUrl) {
+                previewImage.src = imageUrl;
+                imagePreview.style.display = 'block';
+            } else {
+                previewImage.src = '';
+                imagePreview.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
