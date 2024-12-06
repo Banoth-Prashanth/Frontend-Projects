@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bgAnimation{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(20,1fr) ;
+            grid-template-rows: repeat(20,1fr);
+            background: #1d1d1d;
+            filter: saturate(2);
+            overflow: hidden;
+            position: sticky;
+            z-index: -1;
+
+        }
+        .colorBox{
+            z-index: 2;
+            filter: brightness(1.1);
+            transition: 2s ease;
+            position: relative;
+            margin: 2px;
+            background: #1d1d1d;
+
+        }
+        .backgroundAnimation{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            filter: blur(60px);
+            background: #00bfff;
+            animation: animback 6s linear infinite;
+           
+            
+
+        }
+        @keyframes animback {
+            0%{
+                top: -60px;
+               
+            }
+            100%{
+                top: 120%;
+            }
+        }
+        .test1{
+            height: 400px;
+            width: 1200px;
+            background: transparent;
+            border: 1px solid green;
+            backdrop-filter: blur(3px);
+            
+        }
+        html{
+           scroll-behavior: smooth;
+        }
+     
+
+
+
+    </style>
+</head>
+<body>
+    <div class="bgAnimation" id="bgAnimation">
+        
+        <div class="backgroundAnimation">
+          
+
+        </div>
+    </div>
+    <div class="test1"></div>
+    <div class="test1"></div>
+    <div class="test1"></div>
+    <div class="test1"></div>
+    <div class="test1"></div>
+    <script>
+        const bgAnimation=document.getElementById("bgAnimation");
+        const numberOfColorBoxes=400;
+        for (let i=0; i<numberOfColorBoxes; i++) {
+            const colorBox=document.createElement("div");
+            colorBox.classList.add("colorBox");
+            bgAnimation.appendChild(colorBox);
+        }
+    </script>
+</body>
+</html>
