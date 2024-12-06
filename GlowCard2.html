@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: hsl(0, 0%, 0%);
+        }
+        
+        
+        
+        
+        .card{
+            --border-width:2px;
+            --alpha:0.1;
+            border-radius: 10px;
+            --spotlight:radial-gradient( 
+                circle at calc(var(--x) * 1px) calc(var(--y) * 1px),hsl(170 100% 49% / var(--alpha)),transparent 250px);
+            background-attachment: fixed;
+            --spotlight1:radial-gradient( 
+                circle at calc(var(--x) * 1px) calc(var(--y) * 1px),hsla(174, 100%, 43%, 0.802),transparent 250px);
+            color: hsl(0, 0%, 100%);
+            height: 250px;
+            width: 450px;
+            background:var(--spotlight), hsl(0, 0%, 10%);
+            position: relative;
+
+
+        }
+        .card::before{
+            --alpha:0;
+            content: "";
+            position: absolute;
+           inset: 0;
+            background:var(--spotlight1);
+            background-attachment: fixed;
+            mask: 
+            linear-gradient(#fff 0 0) content-box, 
+            linear-gradient(to right, #fff 0 0) border-box, 
+            linear-gradient(to bottom, #fff 0 0) border-box, 
+            linear-gradient(to left, #fff 0 0) border-box;
+            mask-repeat: no-repeat ;
+            border-radius: inherit;
+            mask-composite: exclude; 
+            padding: var(--border-width);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+    <div class="cards">
+        <div class="card"></div>
+    </div>
+    </div>
+    <script>
+        // let card=document.getElementsByClassName("card");
+        const injectCursorPosition=({x,y})=>{
+            
+            document.documentElement.style.setProperty('--x', x)
+            document.documentElement.style.setProperty('--y', y)
+        }
+        document.body.addEventListener('pointermove',injectCursorPosition)
+    </script>
+</body>
+</html>
