@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background: hsl(0, 0%, 6%);
+        }
+        main{
+            width: 80ch ;
+        }
+        .cards{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .card span{
+            position: absolute;
+            color: white;
+            bottom: 1rem;
+            right: 1rem;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card{
+            --border-width:4px;
+            --alpha:0.15;
+            --spotlight:radial-gradient( 
+                circle at calc(var(--x) * 1px) calc(var(--y) * 1px),hsl(0 81% 46% / var(--alpha)),transparent 200px);
+            
+            width: 600px;
+            height: 250px;
+            aspect-ratio: 4 / 3;
+            background:var(--spotlight),
+                hsl(0, 0%, 10%);
+            border-radius: 10px;
+            background-attachment: fixed;
+            color: hsl(0 0% 100%);
+            font-size: 2.50em;
+            font-family: sans-serif;
+            cursor: pointer;
+            display: flex;
+            position: relative;
+
+
+        }
+        .card::before{
+            --alpha:0.5;
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:var(--spotlight);
+            background-attachment: fixed;
+            mask: 
+            linear-gradient(#fff,#fff) 50% 0 / 100% var(--border-width),
+            linear-gradient(#fff,#fff)100% 0 / var(--border-width) 100%,
+            linear-gradient(#fff,#fff) 50% 100% / 100% var(--border-width),
+            linear-gradient(#fff,#fff)0 0 / var(--border-width) 100%;
+            mask-repeat: no-repeat ;
+
+        }
+      
+    </style>
+</head>
+<body>
+    <main>
+        <ul class="cards">
+            <li class="card"><span>1</span></li>
+            
+ 
+        </ul>
+    </main>
+    <script>
+        const injectCursorPosition=({x,y})=>{
+            document.documentElement.style.setProperty('--x', Math.round(x))
+            document.documentElement.style.setProperty('--y', Math.round(y))
+        }
+        document.body.addEventListener('pointermove',injectCursorPosition)
+    </script>
+    
+</body>
+</html>
